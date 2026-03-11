@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <div class="container mx-auto p-4 pt-6 mt-10">
+    <h1 class="text-3xl font-bold mb-4">ماي ايجينتس</h1>
+    <form>
+      <input type="password" id="password" placeholder="ادخل كلمة المرور" class="w-full p-2 mb-4 border border-gray-400 rounded">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">دخول</button>
+    </form>
+    <div id="dashboard" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">لوحة التحكم</h2>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="location.href='#groups'">مركز المجموعات</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="location.href='#agent'">الإيجنت الأكبر</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="location.href='#secretary'">السيكرتاريا</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="location.href='#operations'">مركز العمليات الخاصه</button>
+    </div>
+    <div id="groups" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">مركز المجموعات</h2>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الحمايه</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">المجموعه الإنشائيه</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة المهندسين</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة المعلومات</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">المجموعه الاجتماعيه</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الإختبار و الإختراق</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة التطوير</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الفحص و التحليل</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة التعديل</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة المراقبه</button>
+    </div>
+    <div id="agent" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">الإيجنت الأكبر</h2>
+      <input type="text" id="message" placeholder="اكتب رسالتك" class="w-full p-2 mb-4 border border-gray-400 rounded">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="sendMessage()">إرسال</button>
+    </div>
+    <div id="secretary" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">السيكرتاريا</h2>
+      <input type="text" id="message" placeholder="اكتب رسالتك" class="w-full p-2 mb-4 border border-gray-400 rounded">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="sendMessage()">إرسال</button>
+    </div>
+    <div id="operations" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">مركز العمليات الخاصه</h2>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الإختراق</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الدفاع</button>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">مجموعة الهجوم</button>
+    </div>
+  </div>
+  <script>
+    const password = document.getElementById('password');
+    const dashboard = document.getElementById('dashboard');
+    const groups = document.getElementById('groups');
+    const agent = document.getElementById('agent');
+    const secretary = document.getElementById('secretary');
+    const operations = document.getElementById('operations');
+    
+    password.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        if (password.value === 'password123') {
+          dashboard.style.display = 'block';
+        } else {
+          alert('كلمة المرور غير صحيحة');
+        }
+      }
+    });
+    
+    function sendMessage() {
+      const message = document.getElementById('message').value;
+      console.log(message);
+    }
+  </script>
+</body>
+</html>
